@@ -22,8 +22,7 @@ pub struct Args {
     /// The number of times the tests have to be ran.
     #[structopt(long, short, default_value = "100")]
     pub iter: usize,
-    /// If set, runs for all the iteration defined by repeat, otherwise, stops as soon as a faling
-    /// test is found.
+    /// Pass custom arguments to cargo test.
     #[structopt(long, short)]
     pub args: Option<String>,
 

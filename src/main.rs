@@ -24,6 +24,10 @@ fn compile_tests(command: &Command) -> anyhow::Result<Vec<PathBuf>> {
         cmd = cmd.arg("--release");
     }
 
+    if let Some(extra_args) = &command.args {
+        cmd = cmd.arg(extra_args);
+    }
+
     let mut out = cmd.stdout(Redirection::Pipe).popen()?;
 
     let stdout = out.stdout.take().context("could not read from stdout")?;
